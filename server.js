@@ -8,6 +8,7 @@ const users = require('./routes/api/users');
 const profiles = require('./routes/api/profiles');
 const games = require('./routes/api/games');
 const requests = require('./routes/api/requests');
+const test = require('./routes/api/test');
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.use('/api/users', users);
 app.use('/api/profiles', profiles);
 app.use('/api/games', games);
 app.use('/api/requests', requests);
+app.use('/api/test', test);
 
 const port = process.env.port || 5000;
 

@@ -20,7 +20,7 @@ class Matches extends Component {
     }
 
     return (
-      <div className="card card-body">
+      <div className="card card-body animated fadeIn">
         <table className="table table-borderless ">
           <thead>
             <tr className="bt-0">

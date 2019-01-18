@@ -57,7 +57,7 @@ class EditProfile extends Component {
   render() {
     const { errors } = this.state;
     return (
-      <div className="card card-body">
+      <div className="card card-body animated fadeIn">
         <form noValidate onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Email</label>
