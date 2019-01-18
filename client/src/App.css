@@ -11,9 +11,9 @@ img {
   background: url('./img/showcase.jpeg') no-repeat;
   background-size: cover;
   background-position: center;
-  height: 95.7vh;
-  margin-bottom: -50px;
-  margin-top: -16px;
+  height: 100vh;
+  margin-top: -24px;
+  margin-bottom: -24px;
 }
 
 .landing-inner {

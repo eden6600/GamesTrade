@@ -100,7 +100,11 @@ export const getMatches = (userGames, allGames) => dispatch => {
         .map(item => item.igdb_id)
         .indexOf(tradeForGame.igdb_id);
 
-      if (index !== -1 && allGames[index].user._id !== game.user._id) {
+      if (
+        index !== -1 &&
+        allGames[index].user._id !== game.user._id &&
+        allGames[index].platform === game.platform
+      ) {
         const index2 = allGames[index].trade_for
           .map(item => item.igdb_id)
           .indexOf(game.igdb_id);
