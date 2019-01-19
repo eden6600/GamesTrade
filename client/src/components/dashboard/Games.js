@@ -67,13 +67,11 @@ class Games extends Component {
       );
     } else {
       gamesContent = (
-        <div className="alert alert-warning">
-          You have not added any games yet
-        </div>
+        <div className="alert alert-warning text-center">No Games</div>
       );
     }
     return (
-      <div className="card card-body animated fadeIn">
+      <div className="card card-body">
         {gamesContent}
         <Link to="/dashboard/add-game" className="btn btn-info">
           Add Game

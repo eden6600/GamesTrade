@@ -17,7 +17,7 @@ export const setGamesLoading = () => {
 };
 
 export const getUserGames = () => dispatch => {
-  //dispatch(setGamesLoading());
+  dispatch(setGamesLoading());
   axios
     .get('/api/games')
     .then(res =>

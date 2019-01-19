@@ -16,11 +16,15 @@ class Matches extends Component {
     if (!matches) return null;
 
     if (!matches.length) {
-      return <div className="alert alert-warning text-center">No Matches</div>;
+      return (
+        <div className="card card-body">
+          <div className="alert alert-warning text-center">No Matches</div>
+        </div>
+      );
     }
 
     return (
-      <div className="card card-body animated fadeIn">
+      <div className="card card-body">
         <table className="table table-borderless ">
           <thead>
             <tr className="bt-0">
