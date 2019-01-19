@@ -17,14 +17,17 @@ class AllGames extends Component {
 
     if (!games || loading) return <Spinner />;
     else {
-      console.log(games);
       return (
         <div className="container">
           <h4 className="mb-2">All {this.props.match.params.platform} Games</h4>
           <ul className="list-group">
-            {games.map(item => (
-              <AllGamesItem game={item} />
-            ))}
+            {games.length ? (
+              games.map((item, index) => (
+                <AllGamesItem game={item} key={index} />
+              ))
+            ) : (
+              <div className="alert alert-warning text-center">No Games</div>
+            )}
           </ul>
         </div>
       );
@@ -34,7 +37,6 @@ class AllGames extends Component {
 
 AllGames.propTypes = {
   getAllPlatformGames: PropTypes.func.isRequired,
-  platform: PropTypes.string.isRequired,
   games: PropTypes.array.isRequired
 };
 
