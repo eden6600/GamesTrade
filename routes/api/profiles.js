@@ -90,7 +90,10 @@ router.post(
     profileFields.location = req.body.location;
     profileFields.phone = req.body.phone;
 
-    profileFields.social = {};
+    profileFields.social = {
+      facebook: '',
+      instagram: ''
+    };
     if (req.body.facebook) profileFields.social.facebook = req.body.facebook;
     if (req.body.instagram) profileFields.social.instagram = req.body.instagram;
 
