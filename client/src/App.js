@@ -30,7 +30,7 @@ if (localStorage.getItem('jwtToken')) {
   // Decode token and get user info
   const decoded = jwt_decode(localStorage.getItem('jwtToken'));
   // Set user and isAuth
-  store.dispatch(setCurrentUser(decoded));
+  store.dispatch(setCurrentUser(decoded, this.props.history));
 }
 
 class App extends Component {
