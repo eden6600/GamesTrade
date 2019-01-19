@@ -11,7 +11,9 @@ import Spinner from '../common/Spinner';
 class Home extends Component {
   state = {
     psGames: null,
-    xboxGames: null
+    xboxGames: null,
+    topPsGames: null,
+    topXboxGames: null
   };
 
   componentDidMount() {
@@ -25,6 +27,7 @@ class Home extends Component {
       const topPsGames = [];
       const psGamesIds = allGames
         .filter(item => item.platform === '48')
+        .splice(0, 5)
         .map(item => item.igdb_id);
 
       for (let i = 0; i < psGamesIds.length; i++) {
@@ -52,6 +55,7 @@ class Home extends Component {
 
       const xboxGamesIds = allGames
         .filter(item => item.platform === '49')
+        .splice(0, 5)
         .map(item => item.igdb_id);
 
       for (let i = 0; i < xboxGamesIds.length; i++) {
