@@ -13,7 +13,6 @@ class GameDetails extends Component {
     game: null
   };
   componentDidMount() {
-    //this.props.getGame(this.props.match.params.id);
     this.props.getAllGames();
   }
 
@@ -49,46 +48,47 @@ class GameDetails extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-sm-12 col-md-3">
-            <div className="card">
-              <div className="card-image-top p-2">
+          <div className="col-sm-12 col-md-3 mb-2">
+            <div className="card mx-2">
+              <div className="card-image-top">
                 <img
+                  style={{ height: '295px' }}
                   src={game.image.replace('thumb', 'cover_big')}
-                  className=""
                   alt=""
                 />
               </div>
               <div className="card-body">
-                <h4 className="card-title">{game.name}</h4>
-                <div className="row ">
-                  <div className="col-sm-3">
+                <h4 className="card-title text-center">{game.name}</h4>
+                <div className="d-flex justify-content-start">
+                  <div>
                     <img
                       src={game.user.avatar}
-                      style={{ width: '50px', marginRight: '5px' }}
-                      className="rounded-circle"
+                      className="rounded-circle avatar-med mr-2"
                       alt=""
                     />
                   </div>
-                  <div className="col-sm-9">
-                    <Link
-                      to={`/profile/${game.user._id}`}
-                      className="text-dark"
-                    >
+                  <div>
+                    <Link to={`/profile/${game.user._id}`}>
                       {game.user.name}
                     </Link>
                     <br />
-                    <span>{game.profile.location}</span>
-                    <br />
-                    <Moment format="DD/MM/YYYY">{game.date}</Moment>
+                    <small>
+                      <Moment format="DD/MM/YYYY">{game.date}</Moment>
+                    </small>
                   </div>
                 </div>
+                <hr />
+                <i className="fas fa-map-marker-alt mr-1" />
+                <span>{game.profile.location}</span>
               </div>
             </div>
           </div>
-          <div className="col-sm-12 col-md-9">
+          <div className="col-sm-12 col-md-9 mb-2">
             <div className="card h-100">
               <div className="card-body">
-                <h4 className="card-title">Games For Trade</h4>
+                <h4 className="card-title">
+                  <i className="fas fa-exchange-alt" /> Games For Trade
+                </h4>
                 <table className="table">
                   <tbody>
                     {game.trade_for.map(game => {
@@ -111,7 +111,7 @@ class GameDetails extends Component {
             </div>
           </div>
         </div>
-        <div className="row mt-3">
+        <div className="row">
           <div className="col-sm-12">
             <SimilarGames
               similarGames={game.gamesLike}

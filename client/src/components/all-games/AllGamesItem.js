@@ -6,14 +6,14 @@ export default function AllGamesItem(props) {
   const { game } = props;
   return (
     <li className="list-group-item">
-      <div className="row">
-        <div className="col-sm-8">
+      <div className="d-flex justify-content-between">
+        <div className="">
           <Link to={`/game/${game._id}`}>
             <img src={game.image} alt="" className="rounded cover-small" />{' '}
             <span>{game.name}</span>
           </Link>
         </div>
-        <div className="col-sm-4 my-auto">
+        <div className="my-auto">
           <Link to={`/profile/${game.user._id}`}>
             <span className="border-right pr-2">
               <img

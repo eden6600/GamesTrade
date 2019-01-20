@@ -64,7 +64,9 @@ class SimilarGames extends Component {
     return (
       <div>
         <div className="card card-body">
-          <h4 className="card-title">Similar Games Available</h4>
+          <h4 className="card-title">
+            <i className="fas fa-clone" /> Similar Games Available
+          </h4>
           <div className="d-flex flex-row">{content}</div>
         </div>
       </div>

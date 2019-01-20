@@ -120,39 +120,39 @@ class Home extends Component {
       return (
         <div className="container">
           <h4>
-            <i className="fas fa-crown mr-1" />
+            <i className="fas fa-poll mr-1" />
             Top Games
           </h4>
           <div className="row">
-            <div className="col-sm-12 col-md-6">
+            <div className="col-sm-12 col-md-6 mb-3">
               <TopGames games={topPsGames} platform="PS4" />
             </div>
-            <div className="col-sm-12 col-md-6">
+            <div className="col-sm-12 col-md-6 mb-3">
               <TopGames games={topXboxGames} platform="Xbox One" />
             </div>
           </div>
-          <hr className="mb-4" />
+          <hr className="mt-0" />
 
-          <h4>
+          <h4 className="ml-2">
             <i className="fab fa-playstation mr-1" />
             New PS4 Games
           </h4>
           <div className="row">
             <NewGames games={psGames} />
           </div>
-          <Link to="all-games/PS4/48" className="btn btn-info mt-2">
+          <Link to="all-games/PS4/48" className="btn btn-info ml-2">
             All PS4 Games
           </Link>
 
-          <hr className="mb-4" />
-          <h4>
+          <hr className="mt-3" />
+          <h4 className="ml-2">
             <i className="fab fa-xbox mr-1" />
             New Xbox One Games
           </h4>
           <div className="row">
             <NewGames games={xboxGames} />
           </div>
-          <Link to="all-games/Xbox One/49" className="btn btn-info mt-2">
+          <Link to="all-games/Xbox One/49" className="btn btn-info ml-2">
             All Xbox One Games
           </Link>
         </div>

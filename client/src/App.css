@@ -61,8 +61,8 @@ img {
 }
 
 .cover-med {
-  height: 180px;
-  width: 126px;
+  height: 155px;
+  width: 125px;
 }
 
 .cover-title {
@@ -81,7 +81,6 @@ img {
 
 .avatar-med {
   width: 40px;
-  margin-right: 5px;
   border-radius: 50%;
 }
 
@@ -90,4 +89,14 @@ img {
   color: white;
   padding: 0 0.6em 0 0.6em;
   border-radius: 10rem;
+}
+
+.cover-card {
+  height: 295px;
+}
+
+@media (max-width: 767.98px) {
+  .ctest {
+    height: 435px;
+  }
 }

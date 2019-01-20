@@ -19,7 +19,11 @@ class AllGames extends Component {
     else {
       return (
         <div className="container">
+          <Link to="/home" className="btn btn-link pl-0">
+            <i className="fas fa-arrow-circle-left" /> Back to Home
+          </Link>
           <h4 className="mb-2">All {this.props.match.params.platform} Games</h4>
+          <p>{games.length} Games found</p>
           <ul className="list-group">
             {games.length ? (
               games.map((item, index) => (

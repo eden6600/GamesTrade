@@ -136,8 +136,8 @@ class AddGame extends Component {
 
     return (
       <div className="container">
-        <Link to="/dashboard" className="btn btn-link mb-2">
-          <i className="fas fa-arrow-circle-left" /> Back To Dashboard
+        <Link to="/dashboard" className="btn btn-link pl-0">
+          <i className="fas fa-arrow-circle-left" /> Back to Dashboard
         </Link>
         <div className="card">
           <div className="card-header bg-info text-white">
