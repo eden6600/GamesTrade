@@ -22,9 +22,13 @@ router.post(
     const newMessage = {};
     newMessage.from = req.user.id;
     newMessage.to = req.body.to;
-    newMessage.aboutGame = req.body.aboutGame;
+    newMessage.aboutGame = {};
+    newMessage.aboutGame.name = req.body.aboutGame.name;
+    newMessage.aboutGame.image = req.body.aboutGame.image;
     newMessage.from = req.body.from;
     newMessage.text = req.body.text;
+
+    console.log(newMessage);
 
     new Message(newMessage)
       .save()
@@ -76,7 +80,6 @@ router.get(
     Message.find({ $or: [{ to: req.user.id }, { from: req.user.id }] })
       .populate('from', ['name', 'avatar'])
       .populate('to', ['name', 'avatar'])
-      .populate('aboutGame', ['name', 'image'])
       .then(messages => {
         if (!messages.length) {
           return res.status(404).json({ messages: 'No messages found' });
@@ -98,7 +101,6 @@ router.get(
     Message.findById(req.params.msgID)
       .populate('from', ['name', 'avatar'])
       .populate('to', ['name', 'avatar'])
-      .populate('aboutGame', ['name', 'image'])
       .then(message => {
         if (!message) {
           return res.status(404).json({ message: 'Message not found' });

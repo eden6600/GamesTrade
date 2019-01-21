@@ -11,8 +11,14 @@ const MessageSchema = new Schema({
     ref: 'users'
   },
   aboutGame: {
-    type: Schema.Types.ObjectId,
-    ref: 'games'
+    name: {
+      type: String,
+      required: true
+    },
+    image: {
+      type: String,
+      required: true
+    }
   },
   text: {
     type: String,

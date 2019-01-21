@@ -23,7 +23,9 @@ class CreateMessage extends React.Component {
 
     newMessage.from = game.offer.user._id;
     newMessage.to = game.demand.user._id;
-    newMessage.aboutGame = game.demand._id;
+    newMessage.aboutGame = {};
+    newMessage.aboutGame.name = game.demand.name;
+    newMessage.aboutGame.image = game.demand.image;
     newMessage.text = message;
 
     this.props.sendMessage(newMessage);
