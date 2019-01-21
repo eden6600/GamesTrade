@@ -15,17 +15,10 @@ export default function AllGamesItem(props) {
         </div>
         <div className="my-auto">
           <Link to={`/profile/${game.user._id}`}>
-            <span className="border-right pr-2">
-              <img
-                src={game.user.avatar}
-                alt=""
-                className="avatar-med circle"
-              />{' '}
-              {game.user.name}
-            </span>
+            <span className="border-right pr-2">{game.user.name}</span>
           </Link>
           <span className="border-right px-2">{game.profile.location}</span>
-          <span className="px-2">
+          <span className="pl-2">
             <Moment format="DD/MM/YYYY">{game.date}</Moment>
           </span>
         </div>
