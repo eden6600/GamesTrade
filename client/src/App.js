@@ -19,6 +19,7 @@ import GameDetails from './components/game-details/GameDetails';
 import Profile from './components/profile/Profile';
 import Home from './components/home/Home';
 import AllGames from './components/all-games/AllGames';
+import MessageLayout from './components/message/MessageLayout';
 import Footer from './components/layout/Footer';
 
 import './App.css';
@@ -76,6 +77,13 @@ class App extends Component {
                 exact
                 path="/all-games/:platform/:id"
                 component={AllGames}
+              />
+            </Switch>
+            <Switch>
+              <PrivateRoute
+                exact
+                path="/message/:id"
+                component={MessageLayout}
               />
             </Switch>
 

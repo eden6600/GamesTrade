@@ -38,7 +38,7 @@ class Games extends Component {
                         className="cover-small rounded mr-1"
                         alt=""
                       />
-                      {game.name}
+                      <span className="">{game.name}</span>
                     </Link>
                   </td>
                   <td className="align-middle">

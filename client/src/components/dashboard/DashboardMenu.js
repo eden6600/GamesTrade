@@ -32,6 +32,14 @@ class DashboardMenu extends Component {
         >
           <i className="fas fa-check-double" /> Matches
         </button>
+        <button
+          className="list-group-item list-group-item-action border-0"
+          name="messages"
+          onClick={this.onClick}
+          style={{ cursor: 'pointer' }}
+        >
+          <i className="far fa-comments" /> Messages
+        </button>
       </ul>
     );
   }

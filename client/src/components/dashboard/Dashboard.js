@@ -7,10 +7,12 @@ import Spinner from '../common/Spinner';
 import isEmpty from '../../utils/isEmpty';
 import { getCurrentProfile } from '../../actions/profileActions';
 import { getUserGames, getAllGames } from '../../actions/gameActions';
+import { getMessages } from '../../actions/messageActions';
 import DashboardMenu from './DashboardMenu';
 import EditProfile from './EditProfile';
 import Games from './Games';
 import Matches from './Matches';
+import Messages from './Messages';
 
 class Dashboard extends Component {
   state = {
@@ -23,6 +25,7 @@ class Dashboard extends Component {
     this.props.getCurrentProfile();
     this.props.getUserGames();
     this.props.getAllGames();
+    this.props.getMessages();
   }
 
   onViewChange = e => {
@@ -44,6 +47,7 @@ class Dashboard extends Component {
     const { user } = this.props.auth;
     const { profile, loading } = this.props.profile;
     const { userGames, allGames, gamesLoading } = this.props.games;
+    const { messages } = this.props;
 
     let viewContent;
     switch (this.state.view) {
@@ -56,13 +60,18 @@ class Dashboard extends Component {
       case 'matches':
         viewContent = <Matches userGames={userGames} allGames={allGames} />;
         break;
+      case 'messages':
+        viewContent = (
+          <Messages messages={messages.messages} currentUser={user.id} />
+        );
+        break;
       default:
         viewContent = null;
     }
 
     let dashboardContent;
 
-    if (profile === null || loading || gamesLoading) {
+    if (profile === null || loading || gamesLoading || !messages) {
       dashboardContent = <Spinner />;
     } else {
       if (!isEmpty(profile)) {
@@ -104,20 +113,23 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
+  getMessages: PropTypes.func.isRequired,
   getAllGames: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
   getUserGames: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
+  messages: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   profile: state.profile,
   games: state.games,
-  auth: state.auth
+  auth: state.auth,
+  messages: state.messages
 });
 
 export default connect(
   mapStateToProps,
-  { getCurrentProfile, getUserGames, getAllGames }
+  { getCurrentProfile, getUserGames, getAllGames, getMessages }
 )(withRouter(Dashboard));

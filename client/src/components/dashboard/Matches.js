@@ -4,11 +4,21 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { getMatches } from '../../actions/gameActions';
+import CreateMessage from '../create-message/CreateMessage';
 
 class Matches extends Component {
+  state = {
+    match: null,
+    modal: false
+  };
+
   componentDidMount() {
     this.props.getMatches(this.props.userGames, this.props.allGames);
   }
+
+  onClick = match => {
+    this.setState({ modal: true, match });
+  };
 
   render() {
     const { matches } = this.props;
@@ -28,9 +38,10 @@ class Matches extends Component {
         <table className="table table-borderless ">
           <thead>
             <tr className="bt-0">
-              <th>Game Offered</th>
-              <th>Game Demand</th>
+              <th>Your Game</th>
+              <th>Wanted Game</th>
               <th>User</th>
+              <th />
             </tr>
           </thead>
           <tbody>
@@ -60,10 +71,20 @@ class Matches extends Component {
                     {match.demand.user.name}
                   </Link>
                 </td>
+                <td>
+                  <button
+                    type="button"
+                    onClick={() => this.onClick(match)}
+                    className="btn btn-info"
+                  >
+                    <i className="far fa-envelope" /> Contact user
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
+        <CreateMessage show={this.state.modal} game={this.state.match} />
       </div>
     );
   }

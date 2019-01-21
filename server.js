@@ -8,7 +8,7 @@ const path = require('path');
 const users = require('./routes/api/users');
 const profiles = require('./routes/api/profiles');
 const games = require('./routes/api/games');
-const requests = require('./routes/api/requests');
+const messages = require('./routes/api/messages');
 
 const app = express();
 
@@ -38,7 +38,7 @@ require('./config/passport')(passport);
 app.use('/api/users', users);
 app.use('/api/profiles', profiles);
 app.use('/api/games', games);
-app.use('/api/requests', requests);
+app.use('/api/messages', messages);
 
 // Server static assets if in production
 if (process.env.NODE_ENV === 'production') {
@@ -54,8 +54,6 @@ const port = process.env.PORT || 5000;
 
 app.listen(port, () =>
   console.log(
-    `Server running on port ${port}\n CORS-enabled web server listening on port ${port}\n ${
-      process.env.PORT
-    }`
+    `Server running on port ${port}\n CORS-enabled web server listening on port ${port}`
   )
 );
