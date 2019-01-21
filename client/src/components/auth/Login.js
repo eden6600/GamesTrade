@@ -45,11 +45,11 @@ class Login extends Component {
     // Error message for failed login
     let errorMsg;
     if (errors.email) {
-      errorMsg = <div className="alert alert-danger">User Not Found</div>;
+      errorMsg = <div className="alert alert-danger">User not found</div>;
     } else if (errors.password) {
       errorMsg = (
         <div className="alert alert-danger">
-          Email or Password Are Not Correct
+          Email or Password are not correct
         </div>
       );
     }

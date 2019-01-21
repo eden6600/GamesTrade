@@ -49,7 +49,7 @@ class GameDetails extends Component {
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-3 mb-2">
-            <div className="card mx-2">
+            <div className="card">
               <div className="card-image-top">
                 <img
                   style={{ height: '295px' }}
