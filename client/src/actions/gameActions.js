@@ -96,27 +96,19 @@ export const getMatches = (userGames, allGames) => dispatch => {
 
   userGames.forEach(game => {
     game.trade_for.forEach(tradeForGame => {
-      const index = allGames
-        .map(item => item.igdb_id)
-        .indexOf(tradeForGame.igdb_id);
-
-      if (
-        index !== -1 &&
-        allGames[index].user._id !== game.user._id &&
-        allGames[index].platform === game.platform
-      ) {
-        const index2 = allGames[index].trade_for
-          .map(item => item.igdb_id)
-          .indexOf(game.igdb_id);
-
-        if (index2 !== -1) {
+      allGames.forEach(allGamesItem => {
+        if (
+          allGamesItem.igdb_id === tradeForGame.igdb_id &&
+          allGamesItem.platform === game.platform &&
+          allGamesItem.user._id !== game.user._id
+        ) {
           const match = {};
           match.offer = game;
-          match.demand = allGames[index];
+          match.demand = allGamesItem;
 
           matches.push(match);
         }
-      }
+      });
     });
   });
 
