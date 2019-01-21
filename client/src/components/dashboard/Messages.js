@@ -13,7 +13,7 @@ class Messages extends Component {
 
     return (
       <ul className="list-group">
-        {messages.map(message => {
+        {messages.reverse().map(message => {
           return (
             <Link to={`/message/${message._id}`} key={message._id}>
               <li className="list-group-item d-flex text-dark">

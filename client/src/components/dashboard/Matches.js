@@ -20,6 +20,8 @@ class Matches extends Component {
     this.setState({ modal: true, match });
   };
 
+  handleModal = modal => this.setState({ modal });
+
   render() {
     const { matches } = this.props;
 
@@ -84,7 +86,11 @@ class Matches extends Component {
             ))}
           </tbody>
         </table>
-        <CreateMessage show={this.state.modal} game={this.state.match} />
+        <CreateMessage
+          show={this.state.modal}
+          game={this.state.match}
+          handleModal={this.handleModal}
+        />
       </div>
     );
   }

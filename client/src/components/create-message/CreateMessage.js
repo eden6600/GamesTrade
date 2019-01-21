@@ -33,9 +33,14 @@ class CreateMessage extends React.Component {
   };
 
   toggle = () => {
-    this.setState({
-      modal: !this.state.modal
-    });
+    this.setState(
+      {
+        modal: !this.state.modal
+      },
+      () => {
+        this.props.handleModal(this.state.modal);
+      }
+    );
   };
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -72,7 +77,11 @@ class CreateMessage extends React.Component {
               </div>
             </ModalBody>
             <ModalFooter>
-              <Button color="info" onClick={this.onSubmit}>
+              <Button
+                color="info"
+                onClick={this.onSubmit}
+                disabled={!this.state.message}
+              >
                 Send
               </Button>{' '}
               <Button color="secondary" onClick={this.toggle}>
@@ -87,6 +96,7 @@ class CreateMessage extends React.Component {
 }
 
 CreateMessage.propTypes = {
+  handleModal: PropTypes.func.isRequired,
   sendMessage: PropTypes.func.isRequired,
   messages: PropTypes.object.isRequired,
   game: PropTypes.object.isRequired,
